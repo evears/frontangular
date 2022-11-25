@@ -1,0 +1,58 @@
+<div class="container px-8 py-4" *ngIf="libro">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Agregar un libro a la biblioteca</h1>
+
+      <form class="mt-4" (ngSubmit)="onUpdate()" #f="ngForm">
+
+        <div class="form-group">
+          <label for="nombre">Nombre del libro</label>
+          <input type="text" maxlength="60" class="form-control" id="nombre" name="nombre" [(ngModel)]="libro.nombre"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="autor">Nombre del autor</label>
+          <input type="text" maxlength="60" class="form-control" id="autor" name="autor" [(ngModel)]="libro.autor"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="editorial">Nombre de la editorial</label>
+          <input type="text" maxlength="60" class="form-control" id="editorial" name="editorial"
+            [(ngModel)]="libro.editorial" required>
+        </div>
+
+        <div class="form-group">
+          <label for="anio">Año de publicación</label>
+          <input type="number" maxlength="4" class="form-control" id="anio" name="anio" [(ngModel)]="libro.anio"
+            required>
+        </div>
+
+        <div class="my-3">
+          <label for="fueLeido">¿Lo leí?</label>
+          <br>
+          <input type="radio" name="fueLeido" ng-control="fueLeido" value="true" [(ngModel)]="libro.fueLeido"
+            required>Si
+          <br>
+          <input type="radio" name="fueLeido" ng-control="fueLeido" value="false" [(ngModel)]="libro.fueLeido"
+            required>No
+        </div>
+
+        <label for="formato">Formato</label>
+        <select class="form-select" name="formato" id="formato" [(ngModel)]="libro.formato" required>
+          <option value="DIGITAL">Digital</option>
+          <option value="PAPEL">Papel</option>
+        </select>
+
+        <br>
+
+        <button class="btn btn-primary mb-2">
+          Guardar cambios
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</div>
